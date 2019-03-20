@@ -29,24 +29,25 @@ public class jSoupWithDescoStOverflow {
                 .method(Connection.Method.GET)
                 .execute();
 
-        Document document = Jsoup.connect(urlLoginAction) //retreives the dashboard after logging in
+        Document document = Jsoup.connect(urlLoginAction) // Logs in
                 .data("j_username", "s.saadathussain.95@gmail.com")
                 .data("j_password", "87jTXnWZ")
                 .cookies(loginForm.cookies())
                 .post();
-        System.out.println(document.select("a[href]"));
-//        System.out.println(document); //JSESSIONID
-        Map cookieS = loginForm.cookies();
+//        System.out.println(document.select("a[href]")); // prints out the links
+//        System.out.println(document); //JSESSIONID    // prints out the index page after logging in
+
+        Map cookieS = loginForm.cookies(); // Cookies stored in this String
         System.out.println(loginForm.cookies());
         System.out.println(cookieS.get("JSESSIONID"));
-        System.out.println(document);
         
-//        Document document2 = Jsoup.connect(routineURL) 
-//                .data("j_username", "s.saadathussain.95@gmail.com")
-//                .data("j_password", "87jTXnWZ")
-//                .cookies(cookieS)
-//                .post();
-
+        
+        Document document2 = Jsoup.connect(routineURL) 
+                .data("j_username", "s.saadathussain.95@gmail.com")
+                .data("j_password", "87jTXnWZ")
+                .cookies(cookieS)
+                .post();
+        System.out.println(document2);
 
         Connection.Response res = Jsoup.connect(urlLoginAction)
         .data("j_username", "s.saadathussain.95@gmail.com", "j_password", "87jTXnWZ")
@@ -57,9 +58,9 @@ public class jSoupWithDescoStOverflow {
         String sessionId = res.cookie("JSESSIONID");
         System.out.println("second way: " + sessionId);
         
-        Document doc2 = Jsoup.connect(routineURL)
-        .cookie("JSESSIONID", sessionId)
-        .get();
+//        Document doc2 = Jsoup.connect(StudentProfile)
+//        .cookie("JSESSIONID", sessionId)
+//        .get();
 //        System.out.print(doc2);
     }
 
