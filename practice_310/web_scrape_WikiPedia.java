@@ -14,7 +14,7 @@ import org.jsoup.select.Elements;
  *
  * @author User
  */
-public class web_scrape {
+public class web_scrape_WikiPedia {
 //    print("running");
     public static void main(String args[]){
 		print("running...");
