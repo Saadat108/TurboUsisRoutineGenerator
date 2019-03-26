@@ -12,7 +12,8 @@ import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
 import com.gargoylesoftware.htmlunit.html.HtmlSelect;
 import com.gargoylesoftware.htmlunit.html.HtmlOption;
-//import com.gargoylesoftware.htmlunit.html.*;
+import com.gargoylesoftware.htmlunit.UnexpectedPage;
+import com.gargoylesoftware.htmlunit.html.*;
 
 /**
  *
@@ -40,6 +41,9 @@ public class test_HtmlUnit {
             passwordInput.setValueAttribute(password);
 //            System.out.println(page.asText()); // to test whether name ans password have been entered
             page = page.getHtmlElementById("ctl00_leftColumn_ctl00_btnLogin").click(); // clicks on submit button
+            
+            page = client.getPage("http://usis.bracu.ac.bd/academia/academicSection/listAcademicSectionWithSchedule?query=cse310&academiaSession=627107&_search=false&nd=1553452671624&rows=20&page=1&sidx=course_code&sord=asc");
+            page.asXml();
             
             
             // goes to find class timing

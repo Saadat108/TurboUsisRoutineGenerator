@@ -40,6 +40,11 @@ public class jSoupWithDescoStOverflow {
         Map cookieS = loginForm.cookies(); // Cookies stored in this String
         System.out.println(loginForm.cookies());
         System.out.println(cookieS.get("JSESSIONID"));
+        document = Jsoup.connect("http://usis.bracu.ac.bd/academia/academicSection/listAcademicSectionWithSchedule?query=cse310&academiaSession=627107&_search=false&nd=1553452671624&rows=20&page=1&sidx=course_code&sord=asc")
+                .cookies(cookieS)
+                .get();
+        System.out.println("document");
+        System.out.println(document);
         
         
         Document document2 = Jsoup.connect(routineURL) 
