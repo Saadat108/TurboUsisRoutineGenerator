@@ -44,7 +44,7 @@ public class jSoupWithDescoStOverflow {
                 .cookies(cookieS)
                 .get();
         System.out.println("document");
-        System.out.println(document);
+        System.out.println("documentz: "+document);
         
         
         Document document2 = Jsoup.connect(routineURL) 
